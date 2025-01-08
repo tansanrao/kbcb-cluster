@@ -10,6 +10,7 @@ spec:
   path: ./kubernetes/apps/network/tailscale-operator/app
   dependsOn:
     - name: external-secrets-stores
+    - name: generic-device-plugin
   prune: true
   sourceRef:
     kind: GitRepository
