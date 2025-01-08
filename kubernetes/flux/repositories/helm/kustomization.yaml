@@ -18,3 +18,4 @@ resources:
   - ./stakater.yaml
   - ./external-secrets.yaml
   - ./tailscale-charts.yaml
+  - ./rook-ceph.yaml

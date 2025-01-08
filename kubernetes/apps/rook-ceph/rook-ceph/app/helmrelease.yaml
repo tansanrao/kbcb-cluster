@@ -1,0 +1,40 @@
+---
+# yaml-language-server: $schema=https://kubernetes-schemas.pages.dev/helm.toolkit.fluxcd.io/helmrelease_v2.json
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: rook-ceph-operator
+spec:
+  interval: 30m
+  timeout: 15m
+  chart:
+    spec:
+      chart: rook-ceph
+      version: v1.16.1
+      sourceRef:
+        kind: HelmRepository
+        name: rook-ceph
+        namespace: flux-system
+  install:
+    remediation:
+      retries: 3
+  upgrade:
+    cleanupOnFail: true
+    remediation:
+      strategy: rollback
+      retries: 3
+  values:
+    csi:
+      enableVolumeGroupSnapshot: false # TODO: enable this when v1beta1 CRDsare available
+      cephFSKernelMountOptions: ms_mode=secure # Set whenencryption/compression is enabled
+      enableLiveness: true
+    crds:
+      enabled: true
+    pspEnable: false
+    resources:
+      requests:
+        cpu: 100m
+        memory: 128Mi
+      limits:
+        cpu: 500m
+        memory: 256Mi
