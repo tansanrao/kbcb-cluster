@@ -39,17 +39,13 @@ spec:
               - --config=/config/config.yaml
             resources:
               requests:
-                cpu: 10m
+                cpu: 50m
+                memory: 10Mi
               limits:
-                memory: 64Mi
+                cpu: 50m
+                memory: 20Mi
             securityContext:
-              # privileged: true
-              allowPrivilegeEscalation: false
-              readOnlyRootFilesystem: true
-              capabilities:
-                drop:
-                  - ALL
-
+              privileged: true
     persistence:
       config:
         type: configMap
