@@ -17,3 +17,4 @@ resources:
   - ./spegel.yaml
   - ./stakater.yaml
   - ./external-secrets.yaml
+  - ./tailscale-charts.yaml
