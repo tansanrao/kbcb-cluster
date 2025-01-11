@@ -4,8 +4,8 @@ bgpControlPlane:
   enabled: true
 bpf:
   masquerade: false # Required for Talos `.machine.features.hostDNS.forwardKubeDNSToHost`
-  # Ref: https://github.com/siderolabs/talos/issues/10002
-  hostLegacyRouting: true
+  # # Ref: https://github.com/siderolabs/talos/issues/10002
+  # hostLegacyRouting: true
 cgroup:
   automount:
     enabled: false
