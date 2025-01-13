@@ -9,3 +9,4 @@ resources:
   - ./asif-blog/ks.yaml
   - ./miniflux/ks.yaml
   - ./ocis/ks.yaml
+  - ./shared/ks.yaml
