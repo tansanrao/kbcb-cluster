@@ -19,3 +19,5 @@ resources:
   - ./external-secrets.yaml
   - ./tailscale-charts.yaml
   - ./rook-ceph.yaml
+  - ./backube.yaml
+  - ./piraeus.yaml
