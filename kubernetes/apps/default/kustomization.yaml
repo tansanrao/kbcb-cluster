@@ -8,3 +8,4 @@ resources:
   # Flux-Kustomizations
   - ./asif-blog/ks.yaml
   - ./miniflux/ks.yaml
+  - ./ocis/ks.yaml
