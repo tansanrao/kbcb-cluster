@@ -25,7 +25,7 @@ spec:
       retries: 3
   values:
     toolbox:
-      enabled: false
+      enabled: true
       image: quay.io/ceph/ceph:v18.2.4
     cephClusterSpec:
       cephVersion:
@@ -33,7 +33,11 @@ spec:
       external:
         enable: true
       crashCollector:
-        disable: true
+        disable: false
+      dashboard:
+        enabled: true
+        urlPrefix: /
+        ssl: false
       healthCheck:
         daemonHealth:
           mon:
@@ -42,9 +46,7 @@ spec:
       network:
         provider: host
         connections:
-          # Requires kernel 5.11
-          encryption:
-            enabled: true
+          requireMsgr2: true
 
     cephBlockPools: {}
     cephFileSystems: {}
