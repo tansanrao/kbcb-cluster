@@ -25,8 +25,7 @@ spec:
       retries: 3
   values:
     csi:
-      enableVolumeGroupSnapshot: false # TODO: enable this when v1beta1 CRDsare available
-      cephFSKernelMountOptions: ms_mode=secure # Set whenencryption/compression is enabled
+      cephFSKernelMountOptions: ms_mode=prefer-crc
       enableLiveness: true
     crds:
       enabled: true
