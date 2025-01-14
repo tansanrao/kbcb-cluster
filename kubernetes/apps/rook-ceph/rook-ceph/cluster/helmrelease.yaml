@@ -49,5 +49,15 @@ spec:
           requireMsgr2: true
 
     cephBlockPools: {}
+    cephBlockPoolsVolumeSnapshotClass:
+      enabled: true
+      name: csi-ceph-blockpool
+      isDefault: false
+      deletionPolicy: Delete
     cephFileSystems: {}
+    cephFileSystemVolumeSnapshotClass:
+      enabled: true
+      name: csi-ceph-filesystem
+      isDefault: false
+      deletionPolicy: Delete
     cephObjectStores: {}
