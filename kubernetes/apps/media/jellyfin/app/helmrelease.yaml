@@ -15,6 +15,7 @@ spec:
         name: bjw-s
         namespace: flux-system
   install:
+    timeout: 10m
     remediation:
       retries: 3
   upgrade:
