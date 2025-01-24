@@ -42,6 +42,11 @@ spec:
     kind: GitRepository
     name: home-kubernetes
   wait: true
+  postBuild:
+    substituteFrom:
+      - kind: Secret
+        name: crunchy-postgres-s3
+        optional: false
   interval: 30m
   retryInterval: 1m
   timeout: 5m
@@ -57,9 +62,6 @@ spec:
   commonMetadata:
     labels:
       app.kubernetes.io/name: *app
-  dependsOn:
-    - name: crunchy-postgres-operator
-    - name: external-secrets-stores
   path: ./kubernetes/apps/database/crunchy-postgres-operator/userinit-controller
   prune: true
   sourceRef:
