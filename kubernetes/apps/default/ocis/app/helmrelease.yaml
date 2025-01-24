@@ -64,9 +64,12 @@ spec:
               WEB_OIDC_ISSUER: https://auth.tansanrao.net
               WEB_OIDC_METADATA_URL: https://auth.tansanrao.net/.well-known/openid-configuration
               PROXY_USER_OIDC_CLAIM: "preferred_username"
+              PROXY_AUTOPROVISION_ACCOUNTS: true
               PROXY_AUTOPROVISION_CLAIM_USERNAME: "preferred_username"
               PROXY_AUTOPROVISION_CLAIM_EMAIL: "email"
               PROXY_AUTOPROVISION_CLAIM_DISPLAYNAME: "name"
+              PROXY_ROLE_ASSIGNMENT_DRIVER: "oidc"
+              PROXY_ROLE_ASSIGNMENT_CLAIM: "groups"
               PROXY_OIDC_REWRITE_WELLKNOWN: true
               PROXY_CSP_CONFIG_FILE_LOCATION: "/etc/ocis/csp.yaml"
             envFrom:
