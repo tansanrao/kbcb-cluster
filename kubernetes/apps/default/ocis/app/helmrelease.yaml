@@ -59,9 +59,9 @@ spec:
               PROXY_TLS: false
               # Auto role assignment:
               # docs: https://doc.owncloud.com/ocis/next/deployment/services/s-list/proxy.html#automatic-role-assignments
-              OCIS_OIDC_ISSUER: https://auth.tansanrao.net
-              PROXY_OIDC_ISSUER: https://auth.tansanrao.net
-              WEB_OIDC_ISSUER: https://auth.tansanrao.net
+              OCIS_OIDC_ISSUER: https://auth.tansanrao.net/
+              PROXY_OIDC_ISSUER: https://auth.tansanrao.net/
+              WEB_OIDC_ISSUER: https://auth.tansanrao.net/
               WEB_OIDC_METADATA_URL: https://auth.tansanrao.net/.well-known/openid-configuration
               PROXY_USER_OIDC_CLAIM: "preferred_username"
               PROXY_AUTOPROVISION_ACCOUNTS: true
@@ -69,7 +69,7 @@ spec:
               PROXY_AUTOPROVISION_CLAIM_EMAIL: "email"
               PROXY_AUTOPROVISION_CLAIM_DISPLAYNAME: "name"
               PROXY_ROLE_ASSIGNMENT_DRIVER: "oidc"
-              PROXY_ROLE_ASSIGNMENT_CLAIM: "groups"
+              PROXY_ROLE_ASSIGNMENT_CLAIM: "roles"
               PROXY_OIDC_REWRITE_WELLKNOWN: true
               PROXY_CSP_CONFIG_FILE_LOCATION: "/etc/ocis/csp.yaml"
             envFrom:
