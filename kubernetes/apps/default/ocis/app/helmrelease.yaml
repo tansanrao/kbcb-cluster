@@ -120,6 +120,9 @@ spec:
           - path: /etc/ocis/web.yaml
             subPath: web.yaml
             readOnly: true
+          - path: /etc/ocis/csp.yaml
+            subPath: csp.yaml
+            readOnly: true
       data:
         existingClaim: ocis-data
         globalMounts:
