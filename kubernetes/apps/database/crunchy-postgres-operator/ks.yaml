@@ -6,7 +6,7 @@ metadata:
   name: &app crunchy-postgres-operator
   namespace: flux-system
 spec:
-  targetNamespace: default
+  targetNamespace: database
   commonMetadata:
     labels:
       app.kubernetes.io/name: *app
