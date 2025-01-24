@@ -57,6 +57,16 @@ spec:
               OCIS_LOG_PRETTY: true
               OCIS_URL: https://files.tansanrao.net
               PROXY_TLS: false
+              # Auto role assignment:
+              # docs: https://doc.owncloud.com/ocis/next/deployment/services/s-list/proxy.html#automatic-role-assignments
+              OCIS_OIDC_ISSUER: https://auth.tansanrao.net
+              PROXY_OIDC_ISSUER: https://auth.tansanrao.net
+              WEB_OIDC_ISSUER: https://auth.tansanrao.net
+              WEB_OIDC_METADATA_URL: https://auth.tansanrao.net/.well-known/openid-configuration
+              PROXY_USER_OIDC_CLAIM: "preferred_username"
+              PROXY_AUTOPROVISION_CLAIM_USERNAME: "preferred_username"
+              PROXY_AUTOPROVISION_CLAIM_EMAIL: "email"
+              PROXY_AUTOPROVISION_CLAIM_DISPLAYNAME: "name"
             envFrom:
               - secretRef:
                   name: ocis-secret
