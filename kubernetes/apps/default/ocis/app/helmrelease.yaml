@@ -72,6 +72,11 @@ spec:
               PROXY_ROLE_ASSIGNMENT_CLAIM: "roles"
               PROXY_OIDC_REWRITE_WELLKNOWN: true
               PROXY_CSP_CONFIG_FILE_LOCATION: "/etc/ocis/csp.yaml"
+              # Without this, I got the following errors in the ownCloud log:
+              # Authentik: failed to verify access token: the JWT has an invalid kid: could not find kid in JWT header
+              # Authelia: failed to verify access token: token contains an invalid number of segments
+              # Auth0: failed to verify access token: token contains an invalid number of segments
+              PROXY_OIDC_ACCESS_TOKEN_VERIFY_METHOD: "none"
             envFrom:
               - secretRef:
                   name: ocis-secret
