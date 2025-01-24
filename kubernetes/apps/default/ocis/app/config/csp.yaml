@@ -3,6 +3,7 @@ directives:
     - "'self'"
   connect-src:
     - "'self'"
+    - "https://auth.tansanrao.net/"
   default-src:
     - "'none'"
   font-src:
