@@ -11,13 +11,15 @@ spec:
     labels:
       app.kubernetes.io/name: *app
   dependsOn:
+    - name: crunchy-postgres-operator-cluster
+    - name: dragonfly-operator-cluster
     - name: external-secrets-stores
   path: ./kubernetes/apps/default/authentik/app
   prune: true
   sourceRef:
     kind: GitRepository
     name: home-kubernetes
-  wait: false
+  wait: true
   interval: 30m
   retryInterval: 1m
   timeout: 5m
