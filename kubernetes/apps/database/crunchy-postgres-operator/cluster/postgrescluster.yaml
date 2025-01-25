@@ -99,7 +99,7 @@ spec:
         - name: repo1 # Minio
           s3: &minio
             bucket: "crunchy-pgo"
-            endpoint: ${CPGO_MINIO_ENDPOINT}
+            endpoint: "192.168.101.10:9000"
             region: "us-east-1"
           schedules:
             full: "0 1 * * 0" # Sunday at 01:00
@@ -108,7 +108,7 @@ spec:
         - name: repo2 # R2
           s3: &r2
             bucket: "crunchy-pgo"
-            endpoint: ${CPGO_R2_ENDPOINT}
+            endpoint: "c6b94fac3912990d5ba196ac12a2f2ed.r2.cloudflarestorage.com"
             region: "us-east-1"
           schedules:
             full: "0 2 * * 0" # Sunday at 02:00
