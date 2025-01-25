@@ -38,5 +38,5 @@ spec:
   resources:
     requests:
       storage: 200Gi
-  volumeName: mediastore-pv-smb
+  volumeName: crunchy-pv-smb
   storageClassName: ""
