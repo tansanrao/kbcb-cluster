@@ -27,16 +27,3 @@ spec:
     nodeStageSecretRef:
       name: smbcreds
       namespace: default
----
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  name: crunchy-pvc
-spec:
-  accessModes:
-    - ReadWriteMany
-  resources:
-    requests:
-      storage: 200Gi
-  volumeName: crunchy-pv-smb
-  storageClassName: ""
