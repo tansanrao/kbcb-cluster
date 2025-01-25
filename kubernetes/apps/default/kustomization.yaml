@@ -13,3 +13,4 @@ resources:
   - ./smtp-relay/ks.yaml
   - ./mealie/ks.yaml
   - ./actual/ks.yaml
+  - ./authentik/ks.yaml
