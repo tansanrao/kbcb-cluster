@@ -22,3 +22,4 @@ resources:
   - ./backube.yaml
   - ./piraeus.yaml
   - ./crunchydata.yaml
+  - ./authentik.yaml
