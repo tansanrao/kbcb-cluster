@@ -75,20 +75,20 @@ spec:
         compress-type: "bz2"
         compress-level: "9"
         # Minio
+        # repo1-block: "y"
+        # repo1-bundle: "y"
+        # repo1-path: /postgres
+        # repo1-retention-full: "30" # days
+        # repo1-retention-full-type: "time"
+        # repo1-s3-uri-style: path
+        # repo1-storage-verify-tls: n
+        # Cloudflare R2
         repo1-block: "y"
         repo1-bundle: "y"
         repo1-path: /postgres
-        repo1-retention-full: "30" # days
-        repo1-retention-full-type: "time"
+        repo1-retention-full: "7" # days
+        repo1-retention-full-type: time
         repo1-s3-uri-style: path
-        repo1-storage-verify-tls: n
-        # Cloudflare R2
-        repo2-block: "y"
-        repo2-bundle: "y"
-        repo2-path: /postgres
-        repo2-retention-full: "7" # days
-        repo2-retention-full-type: time
-        repo2-s3-uri-style: path
       manual:
         repoName: repo1
         options:
@@ -97,16 +97,16 @@ spec:
         labels:
           app.kubernetes.io/name: crunchy-postgres-backup
       repos:
-        - name: repo1 # Minio
-          s3: &minio
-            bucket: "crunchy-pgo"
-            endpoint: "192.168.101.10:9000"
-            region: "us-east-1"
-          schedules:
-            full: "0 1 * * 0" # Sunday at 01:00
-            differential: "0 1 * * 1-6" # Mon-Sat at 01:00
-            incremental: "0 2-23 * * *" # Every hour except 01:00
-        - name: repo2 # R2
+        # - name: repo1 # Minio
+        #   s3: &minio
+        #     bucket: "crunchy-pgo"
+        #     endpoint: "192.168.101.10:9000"
+        #     region: "us-east-1"
+        #   schedules:
+        #     full: "0 1 * * 0" # Sunday at 01:00
+        #     differential: "0 1 * * 1-6" # Mon-Sat at 01:00
+        #     incremental: "0 2-23 * * *" # Every hour except 01:00
+        - name: repo1 # R2
           s3: &r2
             bucket: "crunchy-pgo"
             endpoint: "c6b94fac3912990d5ba196ac12a2f2ed.r2.cloudflarestorage.com"
