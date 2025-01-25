@@ -1,0 +1,42 @@
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  annotations:
+    pv.kubernetes.io/provisioned-by: smb.csi.k8s.io
+  name: crunchy-pv-smb
+spec:
+  capacity:
+    storage: 200Gi
+  accessModes:
+    - ReadWriteMany
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: ""
+  mountOptions:
+    - dir_mode=0777
+    - file_mode=0777
+    - noperm
+    - mfsymlinks
+    - cache=strict
+    - noserverino # required to prevent data corruption
+  csi:
+    driver: smb.csi.k8s.io
+    volumeHandle: 192.168.101.10/crunchy
+    volumeAttributes:
+      source: //192.168.101.10/crunchy
+    nodeStageSecretRef:
+      name: smbcreds
+      namespace: default
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: crunchy-pvc
+spec:
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 200Gi
+  volumeName: mediastore-pv-smb
+  storageClassName: ""
