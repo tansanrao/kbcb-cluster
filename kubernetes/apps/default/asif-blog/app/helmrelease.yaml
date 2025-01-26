@@ -32,7 +32,7 @@ spec:
           app:
             image:
               repository: asifdocker23/fast_website
-              tag: 1.8
+              tag: 1.9
             probes:
               liveness:
                 enabled: true
