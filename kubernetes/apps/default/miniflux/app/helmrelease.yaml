@@ -29,14 +29,6 @@ spec:
         strategy: RollingUpdate
         annotations:
           reloader.stakater.com/auto: "true"
-        initContainers:
-          init-db:
-            image:
-              repository: ghcr.io/onedr0p/postgres-init
-              tag: 16.6
-            envFrom: &envFrom
-              - secretRef:
-                  name: miniflux-secret
         containers:
           app:
             image:
@@ -51,7 +43,11 @@ spec:
               POLLING_FREQUENCY: "15"
               PORT: &port 80
               RUN_MIGRATIONS: "1"
-            envFrom: *envFrom
+            envFrom: &envFrom
+              - secretRef:
+                  name: miniflux-secret
+              - secretRef:
+                  name: miniflux-db-secret
             probes:
               liveness: &probes
                 enabled: true
