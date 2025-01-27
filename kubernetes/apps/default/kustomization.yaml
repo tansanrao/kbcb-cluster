@@ -14,3 +14,4 @@ resources:
   - ./mealie/ks.yaml
   - ./actual/ks.yaml
   - ./authentik/ks.yaml
+  - ./hoarder/ks.yaml
