@@ -124,6 +124,10 @@ spec:
     ingress:
       app:
         className: "external"
+        annotations:
+          external-dns.alpha.kubernetes.io/target: external.tansanrao.net
+          nginx.ingress.kubernetes.io/backend-protocol: "HTTP"
+          nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
         hosts:
           - host: hoarder.tansanrao.net
             paths:
