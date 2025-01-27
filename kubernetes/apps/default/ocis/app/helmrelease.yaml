@@ -69,7 +69,6 @@ spec:
               PROXY_AUTOPROVISION_CLAIM_EMAIL: "email"
               PROXY_AUTOPROVISION_CLAIM_DISPLAYNAME: "name"
               PROXY_ROLE_ASSIGNMENT_DRIVER: "oidc"
-              PROXY_ROLE_ASSIGNMENT_CLAIM: "groups"
               PROXY_OIDC_REWRITE_WELLKNOWN: true
               PROXY_CSP_CONFIG_FILE_LOCATION: "/etc/ocis/csp.yaml"
               # Without this, I got the following errors in the ownCloud log:
