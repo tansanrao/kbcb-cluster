@@ -9,3 +9,4 @@ resources:
   - ./shared/ks.yaml
   - ./jellyfin/ks.yaml
   - ./pinchflat/ks.yaml
+  - ./radarr/ks.yaml
