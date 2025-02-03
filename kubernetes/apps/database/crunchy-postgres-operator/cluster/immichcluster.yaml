@@ -3,9 +3,10 @@
 apiVersion: postgres-operator.crunchydata.com/v1beta1
 kind: PostgresCluster
 metadata:
-  name: &name postgres
+  name: &name immich
 spec:
-  postgresVersion: 16
+  postgresVersion: 14
+  image: "ghcr.io/chkpwd/cdpgvecto.rs:14-v0.2.0"
 
   metadata:
     labels:
@@ -23,6 +24,8 @@ spec:
     dynamicConfiguration:
       synchronous_mode: true
       postgresql:
+        shared_preload_libraries: "vectors.so"
+        search_path: '"$user", public, vectors'
         max_wal_size: 5GB
         synchronous_commit: "on"
         pg_hba:
@@ -65,26 +68,6 @@ spec:
         - miniflux
       password:
         type: AlphaNumeric
-    - name: authentik
-      databases:
-        - authentik
-      password:
-        type: AlphaNumeric
-    - name: radarr
-      databases:
-        - radarr_main
-      password:
-        type: AlphaNumeric
-    - name: sonarr
-      databases:
-        - sonarr_main
-      password:
-        type: AlphaNumeric
-    - name: sonarr-anime
-      databases:
-        - sonarr_anime_main
-      password:
-        type: AlphaNumeric
 
   backups:
     pgbackrest:
@@ -96,13 +79,13 @@ spec:
         compress-level: "9"
         # SMB
         repo1-bundle: "y"
-        repo1-path: /postgres
+        repo1-path: /immich
         repo1-retention-full: "30" # days
         repo1-retention-full-type: "time"
         # Cloudflare R2
         repo2-block: "y"
         repo2-bundle: "y"
-        repo2-path: /postgres
+        repo2-path: /immich
         repo2-retention-full: "7" # days
         repo2-retention-full-type: time
         repo2-s3-uri-style: path
