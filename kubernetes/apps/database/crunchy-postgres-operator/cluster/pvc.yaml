@@ -4,7 +4,7 @@ kind: PersistentVolume
 metadata:
   annotations:
     pv.kubernetes.io/provisioned-by: smb.csi.k8s.io
-  name: crunchy-pv-smb
+  name: crunchy-pg-cluster-backup
 spec:
   capacity:
     storage: 200Gi
@@ -21,9 +21,9 @@ spec:
     - noserverino # required to prevent data corruption
   csi:
     driver: smb.csi.k8s.io
-    volumeHandle: 192.168.101.10/crunchy
+    volumeHandle: 192.168.101.10/crunchy-pg-cluster
     volumeAttributes:
-      source: //192.168.101.10/crunchy
+      source: //192.168.101.10/crunchy-pg-cluster
     nodeStageSecretRef:
       name: smbcreds
       namespace: default

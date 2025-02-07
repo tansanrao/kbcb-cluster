@@ -96,7 +96,6 @@ spec:
         compress-level: "9"
         # SMB
         repo1-bundle: "y"
-        repo1-path: /postgres
         repo1-retention-full: "30" # days
         repo1-retention-full-type: "time"
         # Cloudflare R2
@@ -118,7 +117,7 @@ spec:
           volume: &nfs
             volumeClaimSpec:
               storageClassName: ""
-              volumeName: crunchy-pv-smb
+              volumeName: crunchy-pg-cluster-backup
               accessModes:
                 - ReadWriteMany
               resources:
