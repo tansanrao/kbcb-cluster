@@ -142,7 +142,7 @@ spec:
       configuration: *backupConfig
       global: *backupFlag
       repo:
-        name: "repo2"
+        name: repo2
         s3: *r2
 
   monitoring:
