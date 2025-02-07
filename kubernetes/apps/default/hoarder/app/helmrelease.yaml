@@ -34,8 +34,8 @@ spec:
         containers:
           app:
             image:
-              repository: ghcr.io/hoarder-app/hoarder
-              tag: latest
+              repository: tansanrao/hoarder
+              tag: 0.22.0-fixed
             envFrom: &env
               - secretRef:
                   name: hoarder-secret
