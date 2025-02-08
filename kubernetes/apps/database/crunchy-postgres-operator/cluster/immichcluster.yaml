@@ -6,7 +6,7 @@ metadata:
   name: &name immich
 spec:
   postgresVersion: 14
-  image: "ghcr.io/chkpwd/cdpgvecto.rs:14-v0.2.0"
+  image: "ghcr.io/chkpwd/cdpgvecto.rs:16-v0.2.0"
 
   metadata:
     labels:
