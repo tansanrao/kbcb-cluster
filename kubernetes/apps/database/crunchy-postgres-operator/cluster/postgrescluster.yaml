@@ -3,7 +3,7 @@
 apiVersion: postgres-operator.crunchydata.com/v1beta1
 kind: PostgresCluster
 metadata:
-  name: &name postgres
+  name: &name postgres16
 spec:
   postgresVersion: 16
 
@@ -23,7 +23,7 @@ spec:
     dynamicConfiguration:
       synchronous_mode: true
       postgresql:
-        max_wal_size: 5GB
+        max_wal_size: 2GB
         synchronous_commit: "on"
         pg_hba:
           - hostnossl all all 10.69.0.0/16 md5
@@ -41,7 +41,7 @@ spec:
           - ReadWriteOnce
         resources:
           requests:
-            storage: 100Gi
+            storage: 50Gi
       topologySpreadConstraints:
         - maxSkew: 1
           topologyKey: "kubernetes.io/hostname"
